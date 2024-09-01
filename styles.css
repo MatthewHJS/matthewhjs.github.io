@@ -1,0 +1,42 @@
+
+body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#terminal {
+    width: 80%;
+    height: 80%;
+    border: 1px solid green;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#output {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+#input-line {
+    display: flex;
+}
+
+#prompt {
+    margin-right: 5px;
+}
+
+#command-input {
+    background-color: black;
+    color: green;
+    border: none;
+    outline: none;
+    width: 100%;
+}
