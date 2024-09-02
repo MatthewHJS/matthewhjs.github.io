@@ -25,10 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
     function processCommand(command) {
         let output = '';
 
+        if(command.substring(0,8) == 'decode64'){
+
+            console.log(atob(command.substring(8)));
+
+        }
+
         switch (command.toLowerCase()) {
             case 'help':
-                output = 'Available commands: ls, cd, cat, clear, help, whoami';
+                output = 'Available commands: ls, cd, cat, clear, help, whoami, decode64';
                 break;
+
             case 'whoami':
                 output = 'I’m Matthew Hjørnevik-Saunders, a 25-year-old with a background in cybersecurity. I studied at Universitetet i Bergen and Zhejiang University, where I gained practical experience in areas like secure coding and vulnerability analysis. I’m passionate about understanding how technology works and how to make it safer for everyone.';
                 break;
@@ -56,6 +63,15 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'cd':
                 output = "Error: No directory specified. Use 'cd [directory]' to change directories.";
                 break;
+
+            case (command.toLowerCase().startsWith('decode64') && command.toLowerCase()):
+                if(command.length < 9){
+                    output = "Error: No keyword specified. Use 'decode64 [keyword]' to decode a base64 keyword."
+                    break;
+                }
+                output = atob(command.substring(8)); 
+                break;
+
             case 'cd ..':
                 if (currentDirectory === '~/projects') {
                     currentDirectory = '~';
@@ -107,6 +123,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 output = `${command}: command not found`;
                 break;
         }
+
+    
 
         if (command.toLowerCase() !== 'clear') {
             terminalOutput.innerHTML += `<div>${output}</div>`;
