@@ -5,14 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MatthewHJS</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
-    <div id="terminal">
-        <div id="output"></div>
-        <div id="input-line">
-            <span id="prompt">user@website:~$</span>
-            <input type="text" id="command-input" autofocus>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="buttons">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green"></span>
+            </div>
+            <div class="terminal-title">matthew@kali: ~/Desktop </div>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-output" id="terminal-output"></div>
+            <div class="terminal-input">
+                <span class="prompt">(matthew@kali:~$)</span>
+                <input type="text" id="input-line" autofocus>
+            </div>
         </div>
     </div>
     <script src="scripts.js"></script>

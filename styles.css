@@ -1,42 +1,105 @@
-
 body {
-    background-color: black;
-    color: green;
-    font-family: monospace;
+    background-color: #1d1f21;
+    color: #b5bd68; /* Default text color for terminal output */
+    font-family: 'DejaVu Sans Mono', 'Courier New', Courier, monospace; /* Linux-style font */
     margin: 0;
-    height: 100vh;
+    padding: 0;
+}
+
+.terminal {
+    width: 80%;
+    margin: 50px auto;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #1d1f21;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    border: 1px solid #4b5057;
+}
+
+.terminal-header {
+    background-color: #1c1f24;
+    padding: 8px 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #4b5057;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+}
+
+.terminal-header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #00ffcc, #0077ff, #ff00cc);
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.buttons span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4b5057; /* Subtle color for buttons */
+}
+
+.terminal-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #c5c8c6;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.terminal-body {
+    background-color: #1d1f21;
+    padding: 10px;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.terminal-output {
+    margin-bottom: 10px;
+    color: #b5bd68; /* Default text color for terminal output */
+}
+
+.terminal-output div {
+    margin-bottom: 20px; /* Increased space between outputs */
+}
+
+.terminal-output .username {
+    color: #268bd2; /* Blue color for username */
+}
+
+.terminal-input {
+    display: flex;
     align-items: center;
 }
 
-#terminal {
-    width: 80%;
-    height: 80%;
-    border: 1px solid green;
-    padding: 10px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
+.prompt {
+    margin-right: 10px;
+    color: #268bd2; /* Default color */
+    font-weight: bold;
+    white-space: nowrap; /* Ensures the prompt stays on a single line */
 }
 
-#output {
-    flex-grow: 1;
-    overflow-y: auto;
+.prompt .username {
+    color: #268bd2; /* Blue color for username in prompt */
 }
 
 #input-line {
-    display: flex;
-}
-
-#prompt {
-    margin-right: 5px;
-}
-
-#command-input {
-    background-color: black;
-    color: green;
+    background: none;
     border: none;
-    outline: none;
+    color: #b5bd68; /* Matches Kali Linux terminal text color */
     width: 100%;
+    outline: none;
+    font-size: 16px;
 }
