@@ -2,8 +2,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const inputLine = document.getElementById('input-line');
     const terminalOutput = document.getElementById('terminal-output');
+    const terminalBody = document.querySelector('.terminal-body');
     const promptElement = document.querySelector('.prompt'); 
     let currentDirectory = '~'; 
+
+
+    terminalBody.addEventListener('click', function() {
+        inputLine.focus();
+    });
 
 
     inputLine.addEventListener('keydown', function(event) {
@@ -92,9 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'clear':
                 terminalOutput.innerHTML = '';
                 break;
-            case 'supersecurepassword123':
+            case atob('c3VwZXJzZWN1cmVwYXNzd29yZDEyMw=='):
                 playAsciiAnimation();
-                return; 
+                return;
+
 
             default:
                 output = `${command}: command not found`;
@@ -164,5 +171,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     updatePrompt();
+    inputLine.focus();
 });
 
