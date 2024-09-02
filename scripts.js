@@ -44,6 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     output = 'cd: no such file or directory: projects';
                 }
                 break;
+            case 'cat':
+                output = "Error: No file specified. Use 'cat [filename]' to display file contents.";
+                break;
+            case 'cd':
+                output = "Error: No directory specified. Use 'cd [directory]' to change directories.";
+                break;
             case 'cd ..':
                 if (currentDirectory === '~/projects') {
                     currentDirectory = '~';
