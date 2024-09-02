@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             terminalOutput.innerHTML += `<div><span class="username">matthew@kali</span>:${currentDirectory}$ ${inputValue}</div>`;
             processCommand(inputValue);
             inputLine.value = '';
-            setTimeout(scrollToBottom, 0);  // Ensure scroll happens after rendering
+            setTimeout(scrollToBottom, 0);  
         }
     });
 
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
             terminalOutput.innerHTML += `<div>${output}</div>`;
         }
 
-        setTimeout(scrollToBottom, 0);  // Ensure scroll happens after rendering
+        setTimeout(scrollToBottom, 0); 
     }
 
     function updatePrompt() {
@@ -138,8 +138,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function scrollToBottom() {
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        requestAnimationFrame(() => {
+            terminalOutput.lastElementChild.scrollIntoView({ behavior: 'smooth' });
+        });
     }
+    
     function playAsciiAnimation() {
         
         const n = [];
